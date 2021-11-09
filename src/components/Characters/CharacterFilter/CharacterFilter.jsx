@@ -9,33 +9,35 @@ import { filterCharacters, getFilters, getResetFilter } from '../../../redux/red
 import Button from '@mui/material/Button';
 
 
-const CharacterFilter = ({ filterCharacters, getFilters, getResetFilter }) => {
+const CharacterFilter = ({ filterCharacters, getFilters, getResetFilter, setCurrentPage }) => {
     const filters = useSelector(state => state.characters.filters)
     const currentPage = useSelector(state => state.characters.currentPage);
 
     const handleChangeSpecies = (event) => {
+        setCurrentPage(1);
         getFilters('species', event.target.value);
+        filterCharacters(currentPage, event.target.value, filters.status, filters.gender)
     };
 
     const handleChangeStatus = (event) => {
+        setCurrentPage(1);
         getFilters('status', event.target.value);
+        filterCharacters(currentPage, filters.species, event.target.value, filters.gender)
     };
 
     const handleChangeGender = (event) => {
+        setCurrentPage(1);
         getFilters('gender', event.target.value);
+        filterCharacters(currentPage, filters.species, filters.status, event.target.value)
     };
 
     const handleReset = () => {
-        getResetFilter()
-        filterCharacters(currentPage)
-    }
-
-    const applyFilter = () => {
-        filterCharacters(currentPage, filters.species, filters.status, filters.gender)
+        getResetFilter();
+        filterCharacters(currentPage);
     }
 
     return (
-        <div className="characterFilter">
+        <div className="character__filter">
             <FormControl fullWidth>
                 <InputLabel id="demo-simple-select-label">Species</InputLabel>
                 <Select
@@ -79,7 +81,6 @@ const CharacterFilter = ({ filterCharacters, getFilters, getResetFilter }) => {
                     <MenuItem value={'unknown'}>unknown</MenuItem>
 
                 </Select>
-                <Button onClick={applyFilter}>Apply Filter</Button>
                 <Button onClick={handleReset}>Reset</Button>
             </FormControl>
         </div>
