@@ -14,9 +14,12 @@ const instanse = axios.create({
 })
 
 export const charactersAPI = {
-    getAllCharacters() {
-        return instanse.get(`character/`)
+    getAllCharacters(currentPage = 1, species = '', status = '', gender = '') {
+        return instanse.get(`character/?page=${currentPage}&species=${species}&status=${status}&gender=${gender}`)
     },
+    getFilteredCharacters(currentPage = 1, species = '', status = '', gender = '') {
+        return instanse.get(`character/?page=${currentPage}&species=${species}&status=${status}&gender=${gender}`)
+    }
 }
 
 export const locationsAPI = {
@@ -29,4 +32,10 @@ export const episodesAPI = {
     getAllEpisodes() {
         return instanse.get(`episode/`)
     },
+    getCharactersOfEpisode(characters = '') {
+        return instanse.get(`character/${characters}`)
+    },
+    getFilteredEpisode(currentPage = 1, name = '') {
+        return instanse.get(`episode/?page=${currentPage}&name=${name}`)
+    }
 }

@@ -7,6 +7,7 @@ import Characters from './pages/Characters';
 import Episodes from './pages/Episodes';
 import Locations from './pages/Locations';
 import MyWatchList from './pages/MyWatchList';
+import EpisodeCharacters from './components/Episodes/EpisodeCharcters/EpisodeCharacters';
 
 const App = () => {
   return (
@@ -16,6 +17,7 @@ const App = () => {
         <Route exact path="/" component={MainPage} />
         <Route exact path="/characters" component={Characters} />
         <Route exact path="/episodes" component={Episodes} />
+        <Route exact path="/episodes/characters" component={EpisodeCharacters} />
         <Route exact path="/locations" component={Locations} />
         <Route exact path="/myWatchList" component={MyWatchList} />
       </Switch>
