@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import TableCell from '@mui/material/TableCell';
 import TableRow from '@mui/material/TableRow';
 import Typography from '@mui/material/Typography';
@@ -21,7 +21,7 @@ const style = {
 
 const EpisodeItem = ({ el, currentEpisode, getCurrentEpisode, getCharactersOfEpisode }) => {
 
-    let [open, setOpen] = useState(true);
+    let [open, setOpen] = useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
 

@@ -119,9 +119,8 @@ export const getCharactersOfEpisode = (characters = '') => (dispatch) => {
 export const getFilteredEpisode = (currentPage = 1, name = '') => (dispatch) => {
     episodesAPI.getFilteredEpisode(currentPage, name)
         .then(response => {
-            dispatch(toggleIsLoading(false));
+            dispatch(setTotalEpisodesCount(response.data.info.count));
             dispatch(setEpisodes(response.data.results));
-            // dispatch(setTotalEpisodesCount(response.data.info.count));
         })
         .catch(err => {
             dispatch(setEpisodes([{ name: 'There is nothing here' }]));

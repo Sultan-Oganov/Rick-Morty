@@ -26,13 +26,13 @@ const EpisodeList = ({ getCurrentEpisode, setCurrentPage, getCharactersOfEpisode
     };
 
     const onPageChanged = (pageNumber) => {
-        setCurrentPage(pageNumber)
-        getFilteredEpisode(pageNumber, filters.name)
-    }
+        setCurrentPage(pageNumber);
+        getFilteredEpisode(pageNumber, filters.name);
+    };
 
     return (
         <div>
-            <EpisodeFilter />
+            <EpisodeFilter setCurrentPage={setCurrentPage} />
             <TableContainer component={Paper}>
                 <div className="characters__pagination">
                     {

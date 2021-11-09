@@ -31,7 +31,7 @@ const CharacterList = ({ getCurrentCharacter, setCurrentPage, filterCharacters }
         <div className="characters">
             <Box sx={{ flexGrow: 1 }}>
 
-                <CharacterFilter />
+                <CharacterFilter setCurrentPage={setCurrentPage} />
 
                 <Grid container className="characters__content">
 

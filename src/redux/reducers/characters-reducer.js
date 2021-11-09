@@ -102,10 +102,13 @@ export const filterCharacters = (currentPage = 1, species = '', status = '', gen
     dispatch(toggleIsLoading(true));
     charactersAPI.getFilteredCharacters(currentPage, species, status, gender)
         .then(response => {
-            dispatch(toggleIsLoading(false));
+
+            // dispatch(setCurrentEpisode(1));
+            // dispatch(setTotalEpisodesCount(response.data.info.count));
+            // dispatch(setEpisodes(response.data.results));
+
             dispatch(setCharacters(response.data.results));
             dispatch(setTotalCharactersCount(response.data.info.count));
-
         })
         .catch(err => {
             dispatch(setCharacters(['There is nothing here']));
