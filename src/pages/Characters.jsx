@@ -1,13 +1,17 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
-import CharacterList from '../components/CharacterList/CharacterList';
-import { getAllCharackters } from './../redux/reducers/charackters-reducer';
+import { getAllCharacters, setCurrentPage, getResetFilter } from '../redux/reducers/characters-reducer';
+import CharacterList from '../components/Characters/CharacterList/CharacterList';
 
 
-const Characters = ({ getAllCharackters, isLoading }) => {
+const Characters = ({ getAllCharacters, setCurrentPage, getResetFilter, isLoading }) => {
 
     useEffect(() => {
-        getAllCharackters()
+        getAllCharacters()
+        return () => {
+            setCurrentPage(1)
+            getResetFilter()
+        }
     }, [])
 
     if (isLoading) {
@@ -24,8 +28,8 @@ const Characters = ({ getAllCharackters, isLoading }) => {
 
 const mapStateToProps = (state) => {
     return {
-        isLoading: state.charackters.isLoading
+        isLoading: state.characters.isLoading
     }
 }
 
-export default connect(mapStateToProps, { getAllCharackters })(Characters);
+export default connect(mapStateToProps, { getAllCharacters, getResetFilter, setCurrentPage })(Characters);

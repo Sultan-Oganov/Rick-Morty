@@ -1,11 +1,11 @@
 import { applyMiddleware, combineReducers, createStore } from 'redux';
 import thunkMiddleware from 'redux-thunk';
-import characktersReducer from './reducers/charackters-reducer';
+import charactersReducer from './reducers/characters-reducer';
 import locationsReducer from './reducers/locations-reducer';
 import episodesReducer from './reducers/episodes-reducer';
 
 let reducers = combineReducers({
-    charackters: characktersReducer,
+    characters: charactersReducer,
     locations: locationsReducer,
     episodes: episodesReducer
 });
