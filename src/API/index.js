@@ -26,6 +26,12 @@ export const locationsAPI = {
     getAllLocations() {
         return instanse.get(`location/`)
     },
+    getCharactersOfLocation(characters = '') {
+        return instanse.get(`character/${characters}`)
+    },
+    getFilteredLocations(currentPage = 1, name = '', type = '', dimension = '') {
+        return instanse.get(`location/?page=${currentPage}&name=${name}&type=${type}&dimension=${dimension}`)
+    }
 }
 
 export const episodesAPI = {

@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
+import LocataionList from '../components/Locations/LocationList/LocationList';
 import { getAllLocations } from './../redux/reducers/locations-reducer';
 
 
@@ -16,7 +17,7 @@ const Locations = ({ getAllLocations, isLoading }) => {
     return (
         <div>
             <h1>Locations</h1>
-
+            <LocataionList />
         </div>
     );
 };

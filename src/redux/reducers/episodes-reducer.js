@@ -135,4 +135,9 @@ export const getFilters = (filterType, value) => (dispatch) => {
     dispatch(setFilters(filterType, value));
 };
 
+export const getResetFilter = () => (dispatch) => {
+    dispatch(resetFilters());
+};
+
+
 export default episodesReducer;
