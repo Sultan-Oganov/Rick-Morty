@@ -11,7 +11,7 @@ const EpisodeCharacters = ({ getCurrentCharacter }) => {
 
     return (
         <>
-            <h2>Characters of this Episode</h2>
+            <h2 className="episodes__subtitle">Characters of this Episode</h2>
 
             <Grid container className="characters__content">
                 {

@@ -1,26 +1,26 @@
 import React from 'react';
-import './Header.scss'
-import logo from '../../images/R&M_logo.png'
+import '../../styles/Header/Header.scss';
+import logo from '../../images/R&M_logo.png';
 import { NavLink } from 'react-router-dom';
 
 const Header = () => {
     return (
-        <header>
-            <NavLink exact to="/">
-                <img width="200" src={logo} alt="Logo" />
+        <header className="header">
+            <NavLink className="header__logo" exact to="/">
+                <img className="header__logo-img" width="200" src={logo} alt="Logo" />
             </NavLink>
-            <nav>
-                <li>
-                    <NavLink exact to="/characters">Characters</NavLink>
+            <nav className="header__nav menu">
+                <li className="menu__item">
+                    <NavLink className="menu__link" exact to="/characters">Characters</NavLink>
                 </li>
-                <li>
-                    <NavLink exact to="/episodes">Episodes</NavLink>
+                <li className="menu__item">
+                    <NavLink className="menu__link" exact to="/episodes">Episodes</NavLink>
                 </li>
-                <li>
-                    <NavLink exact to="/locations">Locations</NavLink>
+                <li className="menu__item">
+                    <NavLink className="menu__link" exact to="/locations">Locations</NavLink>
                 </li>
-                <li>
-                    <NavLink exact to="/myWatchList">My watch list</NavLink>
+                <li className="menu__item">
+                    <NavLink className="menu__link" exact to="/mywatchList">My watch list</NavLink>
                 </li>
             </nav>
         </header>

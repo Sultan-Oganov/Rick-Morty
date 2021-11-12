@@ -1,5 +1,4 @@
 import React from 'react';
-import './EpisodeFilter.scss';
 import { connect, useSelector } from 'react-redux';
 import FormControl from '@mui/material/FormControl';
 import { getFilteredEpisode, getFilters } from '../../../redux/reducers/episodes-reducer';
@@ -16,15 +15,15 @@ const EpisodeFilter = ({ getFilteredEpisode, getFilters, setCurrentPage }) => {
     };
 
     return (
-        <div className="episodeFilter">
-            <FormControl fullWidth>
+        <div className="episode__filter filter">
+            <FormControl className="filter__item">
                 <TextField
                     id="outlined-basic"
                     label="Episode name"
                     value={filters.name}
                     variant="outlined"
                     onChange={handleChangeName}
-
+                    className="filter__input"
                 />
             </FormControl>
         </div>

@@ -87,8 +87,8 @@ export const getAllEpisodes = () => (dispatch) => {
     dispatch(toggleIsLoading(true))
     episodesAPI.getAllEpisodes()
         .then(response => {
-            dispatch(setEpisodes(response.data.results))
-            dispatch(setTotalEpisodesCount(response.data.info.count))
+            dispatch(setEpisodes(response.results))
+            dispatch(setTotalEpisodesCount(response.info.count))
         })
         .catch(err => {
             console.log(err)
@@ -106,7 +106,7 @@ export const getCharactersOfEpisode = (characters = '') => (dispatch) => {
     dispatch(toggleIsLoading(true))
     episodesAPI.getCharactersOfEpisode(characters)
         .then(response => {
-            dispatch(setCharactersOfEpisode(response.data))
+            dispatch(setCharactersOfEpisode(response))
         })
         .catch(err => {
             console.log(err)
@@ -117,10 +117,11 @@ export const getCharactersOfEpisode = (characters = '') => (dispatch) => {
 }
 
 export const getFilteredEpisode = (currentPage = 1, name = '') => (dispatch) => {
+    dispatch(toggleIsLoading(true))
     episodesAPI.getFilteredEpisode(currentPage, name)
         .then(response => {
-            dispatch(setTotalEpisodesCount(response.data.info.count));
-            dispatch(setEpisodes(response.data.results));
+            dispatch(setTotalEpisodesCount(response.info.count));
+            dispatch(setEpisodes(response.results));
         })
         .catch(err => {
             dispatch(setEpisodes([{ name: 'There is nothing here' }]));

@@ -83,8 +83,8 @@ export const getAllCharacters = (currentPage = 1, species = '', status = '', gen
     dispatch(toggleIsLoading(true));
     charactersAPI.getAllCharacters(currentPage, species, status, gender)
         .then(response => {
-            dispatch(setCharacters(response.data.results));
-            dispatch(setTotalCharactersCount(response.data.info.count));
+            dispatch(setCharacters(response.results));
+            dispatch(setTotalCharactersCount(response.info.count));
         })
         .catch(err => {
             console.log(err);
@@ -102,8 +102,8 @@ export const filterCharacters = (currentPage = 1, species = '', status = '', gen
     dispatch(toggleIsLoading(true));
     charactersAPI.getFilteredCharacters(currentPage, species, status, gender)
         .then(response => {
-            dispatch(setCharacters(response.data.results));
-            dispatch(setTotalCharactersCount(response.data.info.count));
+            dispatch(setCharacters(response.results));
+            dispatch(setTotalCharactersCount(response.info.count));
         })
         .catch(err => {
             dispatch(setCharacters(['There is nothing here']));

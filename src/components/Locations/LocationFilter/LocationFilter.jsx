@@ -1,5 +1,4 @@
 import React from 'react';
-import './LocationFilter.scss';
 import { connect, useSelector } from 'react-redux';
 import FormControl from '@mui/material/FormControl';
 import { TextField } from '@mui/material';
@@ -34,33 +33,38 @@ const LocationFilter = ({ getFilteredLocations, getFilters, setCurrentPage, getR
     }
 
     return (
-        <div className="episodeFilter">
-            <FormControl fullWidth>
+        <div className="locations__filter">
+            <div className="filter__item">
                 <TextField
                     id="outlined-basic"
                     label="Location name"
                     value={filters.name}
                     variant="outlined"
                     onChange={handleChangeName}
-
+                    className="filter__input"
                 />
+            </div>
+            <div className="filter__item">
                 <TextField
                     id="outlined-basic"
                     label="Location type"
                     value={filters.type}
                     variant="outlined"
                     onChange={handleChangeType}
-
+                    className="filter__input"
                 />
+            </div>
+            <div className="filter__item">
                 <TextField
                     id="outlined-basic"
                     label="Location dimension"
                     value={filters.dimension}
                     variant="outlined"
                     onChange={handleChangeDimension}
+                    className="filter__input"
                 />
                 <Button onClick={handleReset}>Reset</Button>
-            </FormControl>
+            </div>
         </div>
     );
 };

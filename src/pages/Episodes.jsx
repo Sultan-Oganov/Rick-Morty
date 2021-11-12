@@ -1,23 +1,20 @@
 import React, { useEffect } from 'react';
+import '../styles/Episodes/Episodes.scss'
 import { connect } from 'react-redux';
 import EpisodeList from '../components/Episodes/EpisodeList/EpisodeList';
-import { getAllEpisodes } from './../redux/reducers/episodes-reducer';
+import { getAllEpisodes, setCurrentPage } from './../redux/reducers/episodes-reducer';
 
-
-const Episodes = ({ getAllEpisodes, isLoading }) => {
+const Episodes = ({ getAllEpisodes, isLoading, setCurrentPage }) => {
 
     useEffect(() => {
-        getAllEpisodes()
-    }, [])
-
-    if (isLoading) {
-        return <h1>LOADING...</h1>
-    }
+        getAllEpisodes();
+        return (() => setCurrentPage(1));
+    }, []);
 
     return (
-        <div>
-            <h1>Episodes</h1>
-            <EpisodeList />
+        <div className="episodes">
+            <h1 className="episodes__title title">Episodes</h1>
+            <EpisodeList isLoading={isLoading} />
         </div>
     );
 };
@@ -28,4 +25,4 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps, { getAllEpisodes })(Episodes);
+export default connect(mapStateToProps, { getAllEpisodes, setCurrentPage })(Episodes);

@@ -1,5 +1,4 @@
 import React from 'react';
-import './CharacterFilter.scss';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
@@ -37,10 +36,11 @@ const CharacterFilter = ({ filterCharacters, getFilters, getResetFilter, setCurr
     }
 
     return (
-        <div className="character__filter">
-            <FormControl fullWidth>
+        <div className="character__filter filter">
+            <FormControl className="filter__item">
                 <InputLabel id="demo-simple-select-label">Species</InputLabel>
                 <Select
+                    className="filter__select"
                     labelId="demo-simple-select-label"
                     id="demo-simple-select"
                     value={filters.species}
@@ -51,9 +51,10 @@ const CharacterFilter = ({ filterCharacters, getFilters, getResetFilter, setCurr
                     <MenuItem value={'alien'}>Alien</MenuItem>
                 </Select>
             </FormControl>
-            <FormControl fullWidth>
+            <FormControl className="filter__item">
                 <InputLabel id="demo-simple-select-label">Status</InputLabel>
                 <Select
+                    className="filter__select"
                     labelId="demo-simple-select-label"
                     id="demo-simple-select"
                     value={filters.status}
@@ -65,10 +66,11 @@ const CharacterFilter = ({ filterCharacters, getFilters, getResetFilter, setCurr
                     <MenuItem value={'unknown'}>unknown</MenuItem>
                 </Select>
             </FormControl>
-            <FormControl fullWidth>
+            <FormControl className="filter__item">
                 <InputLabel id="demo-simple-select-label">Gender</InputLabel>
 
                 <Select
+                    className="filter__select"
                     labelId="demo-simple-select-label"
                     id="demo-simple-select"
                     value={filters.gender}

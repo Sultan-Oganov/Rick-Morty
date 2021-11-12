@@ -1,28 +1,27 @@
 import React, { useEffect } from 'react';
+import '../styles/Characters/Characters.scss'
 import { connect } from 'react-redux';
 import { getAllCharacters, setCurrentPage, getResetFilter } from '../redux/reducers/characters-reducer';
 import CharacterList from '../components/Characters/CharacterList/CharacterList';
 
-
 const Characters = ({ getAllCharacters, setCurrentPage, getResetFilter, isLoading }) => {
 
     useEffect(() => {
-        getAllCharacters()
-        return () => {
-            setCurrentPage(1)
-            getResetFilter()
-        }
-    }, [])
-
-    if (isLoading) {
-        return <h1>LOADING...</h1>
-    }
+        getAllCharacters();
+        return (() => {
+            setCurrentPage(1);
+            getResetFilter();
+        })
+    }, []);
 
     return (
-        <div>
-            <h1>Characters</h1>
-            <CharacterList />
-        </div>
+        <>{
+            <div className="characters">
+                <h1 className="characters__title title">Characters</h1>
+                <CharacterList isLoading={isLoading} />
+            </div>
+        }
+        </>
     );
 };
 

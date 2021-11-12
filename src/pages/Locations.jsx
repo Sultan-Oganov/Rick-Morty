@@ -1,23 +1,23 @@
 import React, { useEffect } from 'react';
+import '../styles/Locations/Locations.scss';
 import { connect } from 'react-redux';
 import LocataionList from '../components/Locations/LocationList/LocationList';
-import { getAllLocations } from './../redux/reducers/locations-reducer';
+import { getAllLocations, setCurrentPage, getResetFilter } from './../redux/reducers/locations-reducer';
 
-
-const Locations = ({ getAllLocations, isLoading }) => {
+const Locations = ({ getAllLocations, isLoading, setCurrentPage, getResetFilter }) => {
 
     useEffect(() => {
-        getAllLocations()
-    }, [])
-
-    if (isLoading) {
-        return <h1>LOADING...</h1>
-    }
+        getAllLocations();
+        return (() => {
+            setCurrentPage(1);
+            getResetFilter();
+        });
+    }, []);
 
     return (
-        <div>
-            <h1>Locations</h1>
-            <LocataionList />
+        <div className="locations">
+            <h1 className="locations__title title">Locations</h1>
+            <LocataionList isLoading={isLoading} />
         </div>
     );
 };
@@ -25,7 +25,7 @@ const Locations = ({ getAllLocations, isLoading }) => {
 const mapStateToProps = (state) => {
     return {
         isLoading: state.locations.isLoading
-    }
-}
+    };
+};
 
-export default connect(mapStateToProps, { getAllLocations })(Locations);
+export default connect(mapStateToProps, { getAllLocations, setCurrentPage, getResetFilter })(Locations);

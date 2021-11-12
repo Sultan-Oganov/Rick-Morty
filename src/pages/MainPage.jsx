@@ -1,9 +1,9 @@
 import React from 'react';
+import '../styles/MainPage/MainPage.scss'
 
 const MainPage = () => {
     return (
-        <div>
-            <h1>MainPage</h1>
+        <div className="mainpage">
         </div>
     );
 };

@@ -1,4 +1,5 @@
 import React from 'react';
+import './styles/App.scss';
 import { Route, Switch } from 'react-router';
 import Footer from './components/Footer/Footer';
 import Header from './components/Header/Header';
@@ -12,7 +13,7 @@ import LocataionCharcters from './components/Locations/LocationCharcters/Locatio
 
 const App = () => {
   return (
-    <>
+    <div className="bg">
       <Header />
       <Switch>
         <Route exact path="/" component={MainPage} />
@@ -21,10 +22,10 @@ const App = () => {
         <Route exact path="/episodes/characters" component={EpisodeCharacters} />
         <Route exact path="/locations" component={Locations} />
         <Route exact path="/locations/characters" component={LocataionCharcters} />
-        <Route exact path="/myWatchList" component={MyWatchList} />
+        <Route exact path="/mywatchList" component={MyWatchList} />
       </Switch>
       <Footer />
-    </>
+    </div>
   );
 };
 
