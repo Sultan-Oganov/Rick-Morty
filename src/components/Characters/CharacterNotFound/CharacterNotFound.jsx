@@ -1,10 +1,9 @@
 import React from 'react';
-import './CharacterNotFound.scss';
 import Typography from '@mui/material/Typography';
 
 const CharacterNotFound = ({ message }) => {
     return (
-        <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+        <Typography className="characters__notfound" id="modal-modal-description" sx={{ mt: 2 }}>
             {message}
         </Typography>
     );

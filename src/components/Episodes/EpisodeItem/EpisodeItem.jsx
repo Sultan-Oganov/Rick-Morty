@@ -59,26 +59,27 @@ const EpisodeItem = ({ el, currentEpisode, getCurrentEpisode, getCharactersOfEpi
                         aria-describedby="modal-modal-description"
                     >
 
-                        <Box sx={style}>
-                            <CancelIcon onClick={() => {
-                                handleClose()
-                            }} className="modal__close" />
+                        <Box sx={style} className="modal">
+                            <div className="modal__close">
+                                <CancelIcon onClick={handleClose} />
+                            </div>
 
-                            <Typography id="modal-modal-title" variant="h6" component="h2">
+                            <Typography className="modal__text modal__text_title" id="modal-modal-title" variant="h6" component="h2">
                                 Name: {el.name}
                             </Typography>
-                            <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+                            <Typography className="modal__text modal__text_item" id="modal-modal-description" sx={{ mt: 2 }}>
                                 Air date: {el.air_date}
                             </Typography>
-                            <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+                            <Typography className="modal__text modal__text_item" id="modal-modal-description" sx={{ mt: 2 }}>
                                 Episode: {el.episode}
                             </Typography>
-                            <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+                            <Typography className="modal__text modal__text_item" id="modal-modal-description" sx={{ mt: 2 }}>
                                 Created: {new Date(el.created).toLocaleTimeString()}, {new Date(el.created).toLocaleDateString()}
                             </Typography>
-                            <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+                            <Typography className="modal__text modal__text_item" id="modal-modal-description" sx={{ mt: 2 }}>
                                 Characters of this episode:
                                 <Link
+                                    className="modal__link"
                                     onClick={() => {
                                         getCharacterOfEpisode(el.characters)
                                         handleClose()

@@ -1,6 +1,7 @@
 import { locationsAPI } from "../../API";
 
 let initialState = {
+    isLoading: false,
     locations: [],
     currentLocation: null,
     filters: {
@@ -93,8 +94,8 @@ export const getAllLocations = () => (dispatch) => {
     dispatch(toggleIsLoading(true))
     locationsAPI.getAllLocations()
         .then(response => {
-            dispatch(setLocations(response.data.results))
-            dispatch(setTotalLocationsCount(response.data.info.count))
+            dispatch(setLocations(response.results))
+            dispatch(setTotalLocationsCount(response.info.count))
         })
         .catch(err => {
             console.log(err)
@@ -112,7 +113,7 @@ export const getCharactersOfLocation = (characters = '') => (dispatch) => {
     dispatch(toggleIsLoading(true))
     locationsAPI.getCharactersOfLocation(characters)
         .then(response => {
-            dispatch(setCharactersOfLocation(response.data))
+            dispatch(setCharactersOfLocation(response))
         })
         .catch(err => {
             console.log(err)
@@ -123,10 +124,11 @@ export const getCharactersOfLocation = (characters = '') => (dispatch) => {
 }
 
 export const getFilteredLocations = (currentPage = 1, name = '', type = '', dimension = '') => (dispatch) => {
+    dispatch(toggleIsLoading(true));
     locationsAPI.getFilteredLocations(currentPage, name, type, dimension)
         .then(response => {
-            dispatch(setTotalLocationsCount(response.data.info.count));
-            dispatch(setLocations(response.data.results));
+            dispatch(setTotalLocationsCount(response.info.count));
+            dispatch(setLocations(response.results));
         })
         .catch(err => {
             dispatch(setLocations([{ name: 'There is nothing here' }]));

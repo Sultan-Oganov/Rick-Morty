@@ -29,7 +29,7 @@ const CharacterCard = ({ el, getCurrentCharacter, currentCharacter }) => {
     const handleClose = () => setOpen(false);
 
     return (
-        <Card key={el.id} className="characters__item" sx={{ maxWidth: 345 }}>
+        <Card key={el.id} className="characters__card" sx={{ maxWidth: 345 }}>
             <CardMedia
                 component="img"
                 height="250"
@@ -37,10 +37,10 @@ const CharacterCard = ({ el, getCurrentCharacter, currentCharacter }) => {
                 alt="charackter"
             />
             <CardContent>
-                <Typography gutterBottom variant="h5" component="div">
+                <Typography gutterBottom variant="h5" component="div" className="characters__descr" >
                     {el.name.length > 16 ? el.name.slice(0, 16) + ' ..' : el.name}
                 </Typography>
-                <Typography gutterBottom variant="h5" component="div">
+                <Typography gutterBottom variant="h5" component="div" className="characters__descr">
                     {el.species}
                 </Typography>
             </CardContent>
@@ -62,8 +62,10 @@ const CharacterCard = ({ el, getCurrentCharacter, currentCharacter }) => {
                     aria-labelledby="modal-modal-title"
                     aria-describedby="modal-modal-description"
                 >
-                    <Box sx={style}>
-                        <CancelIcon onClick={handleClose} className="modal__close" />
+                    <Box sx={style} className="modal">
+                        <div className="modal__close">
+                            <CancelIcon onClick={handleClose} className="modal__close" />
+                        </div>
 
                         <CardMedia
                             component="img"
@@ -71,22 +73,22 @@ const CharacterCard = ({ el, getCurrentCharacter, currentCharacter }) => {
                             image={el.image}
                             alt="charackter"
                         />
-                        <Typography id="modal-modal-title" variant="h6" component="h2">
+                        <Typography id="modal-modal-title" className="modal__text modal__text_title" variant="h6" component="h2">
                             Name: {el.name}
                         </Typography>
-                        <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+                        <Typography id="modal-modal-description" className="modal__text modal__text_item">
                             Status: {el.status}
                         </Typography>
-                        <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+                        <Typography id="modal-modal-description" className="modal__text modal__text_item">
                             Species: {el.species}
                         </Typography>
-                        <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+                        <Typography id="modal-modal-description" className="modal__text modal__text_item">
                             Gender: {el.gender}
                         </Typography>
-                        <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+                        <Typography id="modal-modal-description" className="modal__text modal__text_item">
                             Location: {el.location.name}
                         </Typography>
-                        <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+                        <Typography id="modal-modal-description" className="modal__text modal__text_item">
                             Origin: {el.origin.name}
                         </Typography>
                     </Box>

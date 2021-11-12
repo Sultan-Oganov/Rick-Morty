@@ -1,0 +1,40 @@
+.locations {
+    &__content {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        align-items: flex-start;
+        padding: 0 0 50px 0;
+    }
+    &__pagination {
+        width: 100%;
+        display: flex;
+        justify-content: space-evenly;
+        margin: 50px 0;
+    }
+    &__filter {
+        width: 100%;
+        display: flex;
+        justify-content: space-evenly;
+    }
+    &__table {
+        width: 85% !important;
+        margin: 0 auto !important;
+    }
+    &__label {
+        font-size: 1.5em !important;
+    }
+    &__subtitle {
+        font-size: 2em;
+        text-align: center;
+        margin: 50px 0;
+        font-weight: 600;
+    }
+}
+.filter {
+    &__item {
+        flex: 0 1 30%;
+        display: flex;
+        flex-direction: column;
+    }
+}

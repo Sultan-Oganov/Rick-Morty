@@ -1,5 +1,4 @@
 import React from 'react';
-import './LocationCharcters.scss'
 import { connect, useSelector } from 'react-redux';
 import { getCurrentCharacter } from '../../../redux/reducers/characters-reducer';
 import CharacterCard from '../../Characters/CharacterCard/CharacterCard';
@@ -12,7 +11,7 @@ const LocationCharcters = ({ getCurrentCharacter }) => {
 
     return (
         <>
-            <h2>Characters of this Locations</h2>
+            <h2 className="locations__subtitle">Characters of this Locations</h2>
 
             <Grid container className="locations__content">
                 {
